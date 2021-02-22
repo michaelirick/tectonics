@@ -1,5 +1,27 @@
-#require 'helper'
-#require 'province_engine'
+require 'helper'
+require 'tectonics'
+
+class TestTectonics < Minitest::Test
+
+  def test_test
+    lithosphere = Tectonics::Lithosphere.new(
+      map_side_length: 256,
+      sea_level: 0.5,
+      erosion_period: 5,
+      folding_ratio: 0.5, # idk
+      aggr_ratio_abs: 5000, # idk
+      aggr_ratio_rel: 0.5, # idk
+      cycle_count: 5 # not sure
+    )
+    lithosphere.create_plates 6
+    lithosphere.write_png
+    lithosphere.update
+    lithosphere.write_png
+
+    assert(true, true)
+  end
+
+end
 
 #class TestProvinceEngine < Minitest::Test
 
